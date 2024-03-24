@@ -36,10 +36,6 @@ public class User implements Serializable {
 	private Long id;
 	
 	@Basic(optional = false)
-	@Column(name = "rol_name")
-	String rolName;
-	
-	@Basic(optional = false)
 	@Column(name = "user_name")
 	String userName;
 	
