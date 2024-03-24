@@ -37,10 +37,10 @@ public class Rol implements Serializable{
 	
 	@Basic(optional = false)
 	@Column(name = "rol_name")
-	String rolName;
+	private String rolName;
 	
 	@Basic(optional = false)
 	@Column(name = "is_active")
-	Boolean isRolActive = Boolean.TRUE;
+	private Boolean isRolActive = Boolean.TRUE;
 
 }
