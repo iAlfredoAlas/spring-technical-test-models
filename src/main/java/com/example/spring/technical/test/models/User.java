@@ -1,13 +1,19 @@
 package com.example.spring.technical.test.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -34,25 +40,29 @@ public class User implements Serializable {
 	@SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", schema = "administration", allocationSize = 1)
 	@Column(name = "id_user")
 	private Long id;
-	
+
 	@Basic(optional = false)
 	@Column(name = "user_name")
 	private String userName;
-	
+
 	@Basic(optional = false)
 	@Column(name = "name")
 	private String name;
-	
+
 	@Basic(optional = false)
 	@Column(name = "password")
 	private String password;
-	
+
 	@Basic(optional = false)
 	@Column(name = "email")
 	private String email;
-	
+
 	@Basic(optional = false)
 	@Column(name = "is_active")
 	private Boolean isUserActive = Boolean.TRUE;
-	
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_rol", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
+	private List<Rol> roles = new ArrayList<>();
+
 }
