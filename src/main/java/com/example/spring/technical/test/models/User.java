@@ -37,22 +37,22 @@ public class User implements Serializable {
 	
 	@Basic(optional = false)
 	@Column(name = "user_name")
-	String userName;
+	private String userName;
 	
 	@Basic(optional = false)
 	@Column(name = "name")
-	String name;
+	private String name;
 	
 	@Basic(optional = false)
 	@Column(name = "password")
-	String password;
+	private String password;
 	
 	@Basic(optional = false)
 	@Column(name = "email")
-	String email;
+	private String email;
 	
 	@Basic(optional = false)
 	@Column(name = "is_active")
-	Boolean isUserActive = Boolean.TRUE;
+	private Boolean isUserActive = Boolean.TRUE;
 	
 }
